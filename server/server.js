@@ -10,7 +10,7 @@ var passport = require('passport');
 var session = require('express-session');
 var router=require('./routes/router');
 require('./services/passport')(passport);
-
+var port = 8080;
 
 
 
@@ -32,7 +32,7 @@ app.use(cookie());
 
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', `http://localhost:$`);
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     // Request headers you wish to allow
@@ -68,5 +68,4 @@ app.post('/search', function(req, res) {
   })
 });
 
-var port = 8080;
 app.listen(port);
