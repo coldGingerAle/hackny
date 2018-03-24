@@ -4,3 +4,8 @@ node_modules/
 config.json
 # Mac DS
 .DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
