@@ -11,6 +11,10 @@ var session = require('express-session');
 var router=require('./routes/router');
 require('./services/passport')(passport);
 
+
+
+
+
 mongoose.connect(`mongodb://${config.dbconfig.username}:${config.dbconfig.password}@${config.dbconfig.url}`);
 
 app.use(session({

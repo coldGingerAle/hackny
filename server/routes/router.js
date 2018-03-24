@@ -4,7 +4,7 @@ require('../services/passport')(passport);
 var express = require('express');
 var jwt = require('jsonwebtoken');
 var router = express.Router();
-
+var getToken = require('../services/getToken');
 var User = require("../models/users");
 
 router.post('/signup', function(req, res) {
@@ -33,8 +33,8 @@ router.post('/signup', function(req, res) {
   }
 });
 
-router.post('/search', function(req, res) {
-  Family.findOne({'email':req.body.email}, function(err, task) {
+router.post('/search', getToken ,function(req, res) {
+  User.findOne({'email':req.body.email}, function(err, task) {
     if (err)  res.send(err);
     res.send(task);
   });
@@ -82,17 +82,6 @@ router.post('/login', function(req, res) {
 
 
 
-getToken = function(headers) {
-  if (headers && headers.authorization) {
-    var parted = headers.authorization.split(' ');
-    if (parted.length === 2) {
-      return parted[1];
-    } else {
-      return null;
-    }
-  } else {
-    return null;
-  }
-};
+
 
 module.exports = router;
