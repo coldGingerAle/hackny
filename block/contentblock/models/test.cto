@@ -1,0 +1,25 @@
+/**
+ * Write your model definitions here
+ */
+
+namespace test
+
+participant User identified by email {
+  o String email
+  o String firstName
+  o String lastName
+}
+
+participant Creator identified by email {
+  o String email
+  o String firstName
+  o String lastName
+  o Integer peopleRated
+  o Integer rated
+}
+
+transaction Rating {
+  -->User from
+  -->Creator to
+  o Integer RatingAmount
+}
