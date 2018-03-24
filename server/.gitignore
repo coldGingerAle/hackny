@@ -2,3 +2,5 @@
 node_modules/
 # Configuration file
 config.json
+#Mac DS
+.DS_Store
