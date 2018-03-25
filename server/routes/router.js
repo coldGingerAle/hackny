@@ -24,7 +24,7 @@ router.post('/signup', function(req, res) {
     newUser.name = req.body.name;
     newUser.college = req.body.college;
     newUser.username = req.body.username;
-
+    newUser.level = 1
     newUser.save(function(err) {
       if (err) {
         return res.json({
@@ -144,8 +144,8 @@ router.get('/content',getToken,function(req,res){
   User.findOne({"_id":id}).then(function(user){
     var email = user.email;
     var lv = user.level;
-    var dict = `{ "level" :${lv} }`;
-    var url = 'http://6c8b2559.ngrok.io/api/test.Content?filter=' + encodeURIComponent(dict);
+    var dict = `{ "level" :${lv}}`;
+    var url = 'http://e0792a8f.ngrok.io/api/test.Content?filter=' + encodeURIComponent(dict);
 
     console.log(url)
     requestify.get(url).then(function(response) {
