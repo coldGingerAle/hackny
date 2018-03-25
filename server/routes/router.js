@@ -145,7 +145,7 @@ router.get('/content',getToken,function(req,res){
     var email = user.email;
     var lv = user.level;
     var dict = `{ "level" :${lv} }`;
-    var url = ' http://f6b50c1e.ngrok.io/api/test.Content?filter=' + encodeURIComponent(dict);
+    var url = 'http://6c8b2559.ngrok.io/api/test.Content?filter=' + encodeURIComponent(dict);
 
     console.log(url)
     requestify.get(url).then(function(response) {
