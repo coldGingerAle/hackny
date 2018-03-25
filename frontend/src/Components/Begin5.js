@@ -9,6 +9,8 @@ import BlandFade from './BlandFade';
 import { Transition } from 'react-transition-group';
 import SkillComponent from './SkillComponent';
 import DashboardComponent from './DashboardComponent';
+import ResourcesIcon from './ResourcesIcon';
+import SourcesIcon from './SourcesIcon';
 
 class Begin5 extends Component {
   constructor(props) {
@@ -48,9 +50,9 @@ class Begin5 extends Component {
          </div>
          <div className="row" style={{marginLeft: 200, marginTop: 60}}>
           <DashboardComponent src="Img/profile.png" title={"My Profile"}/>
-          <DashboardComponent onClick={this.props.goToResources} src="Img/resource.png" title={"Resources"}/>
+          <ResourcesIcon goToResources={this.props.goToResources} src="Img/resource.png" title={"Resources"}/>
           <DashboardComponent src="Img/calendar.png" title={"Projections"}/>
-          <DashboardComponent onClick={this.props.goToRateResources} src="Img/like.png" title={"Rate Resources"}/>
+          <SourcesIcon goToRateResources={this.props.goToRateResources} src="Img/like.png" title={"Rate Resources"}/>
          </div>
         </div>
       </BlandFade>

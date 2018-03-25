@@ -6,7 +6,7 @@ export default class Header extends Component {
       <div style={{backgroundColor: "#1B6FBC", width: "100vw"}}>
         <div className="col-md-10 offset-md-1">
         <nav className="navbar navbar-expand-lg navbar-dark" style={{backgroundColor: "#1B6FBC"}}>
-          <a className="navbar-brand" href="#"><i style={{color: 'white'}} className="fa fa-2x fa-rocket" aria-hidden="true"></i> <span id="">CareerCourse</span></a>
+          <a className="navbar-brand" href="#"><img style={{height: 70}} src="Img/R3.png"/></a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
