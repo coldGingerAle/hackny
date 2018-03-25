@@ -15,11 +15,17 @@ participant Creator identified by email {
   o String firstName
   o String lastName
   o Integer peopleRated
+
+}
+asset content identified by url{
+  o String url
+  o Creator author
+  o String[] tags
   o Integer rated
 }
 
 transaction Rating {
   -->User from
-  -->Creator to
+  -->Content to
   o Integer RatingAmount
 }

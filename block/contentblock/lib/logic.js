@@ -10,9 +10,9 @@
  */
 
  function Rating(Rating) {
-   Rating.to.peopleRated += 1;
+   Rating.to.author.peopleRated += 1;
    Rating.to.rated +=  rating.RatingAmount ;
-   
+
 
    return getAssetRegistry('test.Rating')
    .then (function (rating) {
@@ -24,4 +24,4 @@
    .then(function (rating) {
    return assetRegistry.update(rating.to);
    });
-   }
+ }
