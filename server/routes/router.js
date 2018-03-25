@@ -54,13 +54,110 @@ router.post('/extraInformation', getToken ,function(req, res) {
   });
 });
 
-
-
-router.post('/search', getToken ,function(req, res) {
-  User.findOne({'email':req.body.email}, function(err, task) {
-    if (err)  res.send(err);
-    res.send(task);
+router.post('/skills', getToken ,function(req, res) {
+  var id = req.decoded.id;
+  User.findOne({_id:id}).then(function(user){
+    var email= user.email;
+    for (var key in req.body) {
+    if (req.body.hasOwnProperty(key)) {
+    item = req.body[key];
+    var newInfo= new moreInfo();
+    newInfo.email = email;
+    newInfo.field = key;
+    newInfo.value = item;
+    newInfo.save(function(err) {
+      if (err) {
+        return res.json({
+          success: false,
+          msg: 'error'
+        });
+      }
+      res.json({
+        success: true,
+        msg: 'Successful SkillSet level.'
+      });
+    });
+  }}
+  }).catch(function(err){
+    res.json({
+      "success": "false",
+      "message": "something happened"
+    })
   });
+});
+
+router.post('/interest', getToken ,function(req, res) {
+  var id = req.decoded.id;
+  User.findOne({_id:id}).then(function(user){
+    var email= user.email;
+    for (var key in req.body) {
+    if (req.body.hasOwnProperty(key)) {
+    item = req.body[key];
+    var newInfo= new moreInfo();
+    newInfo.email = email;
+    newInfo.field = "interest";
+    newInfo.value = item;
+    newInfo.save(function(err) {
+      if (err) {
+        return res.json({
+          success: false,
+          msg: 'error'
+        });
+      }
+      res.json({
+        success: true,
+        msg: 'Successful SkillSet level.'
+      });
+    });
+  }}
+  }).catch(function(err){
+    res.json({
+      "success": "false",
+      "message": "something happened"
+    })
+  });
+});
+
+router.post('/edLevel', getToken ,function(req, res) {
+  var id = req.decoded.id;
+  User.findOne({_id:id}).then(function(user){
+    var email= user.email;
+    var newInfo= new moreInfo();
+    newInfo.email = email;
+    newInfo.field = "education Level";
+    newInfo.value = req.body.edLevel;
+    newInfo.save(function(err) {
+      if (err) {
+        return res.json({
+          success: false,
+          msg: 'error'
+        });
+      }
+      res.json({
+        success: true,
+        msg: 'Successful adding education level.'
+      });
+    });
+  }).catch(function(err){
+    res.json({
+      "success": "false",
+      "message": "something happened"
+    })
+  });
+});
+
+router.get('/content',getToken,function(req,res){
+  var id = req.decoded.id;
+  User.findOne({_id:id}).then(function(user){
+
+
+  }).catch(function(err){
+    res.json({
+      "success": "false",
+      "message": "something happened"
+    })
+  });
+
 });
 
 router.post('/login', function(req, res) {

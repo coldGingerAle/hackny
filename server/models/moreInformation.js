@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const moreInfoSchema = new Schema({
   email:String,
-  information:String,
+  field:String,
   value:String
 });
 
