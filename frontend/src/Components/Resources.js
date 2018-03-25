@@ -52,7 +52,7 @@ class Resources extends Component {
     const array = this.state.content;
     const videoarray = array.map(data => {
       let url = data.url + "";
-      return <div key={data.url} className="card3" style={{marginTop: 40, width: 400, backgroundColor: 'white', fontSize: 20}}>
+      return <div key={data.url} className="card3" style={{marginTop: 40, marginLeft: 50, width: 400, backgroundColor: 'white', fontSize: 20}}>
       <ReactPlayer width={400} height={400} url={data.url} />
         <div key={data.tittle} style={{padding: 50}}>
           <h4>{data.tittle}</h4>
@@ -69,7 +69,7 @@ class Resources extends Component {
         <div style={{textAlign: "center"}}>
           <AnimatedText fontSize={"2em"} color={"#1B6FBC"}>{text}</AnimatedText>
          </div>
-         <div className="row" style={{marginLeft: 100}}>
+         <div className="row" style={{marginLeft: 20}}>
           {videoarray}
         </div>
         </div>
