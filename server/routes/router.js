@@ -7,6 +7,8 @@ var router = express.Router();
 var getToken = require('../services/getToken');
 var User = require("../models/users");
 var moreInfo = require("../models/moreInformation");
+var requestify = require('requestify');
+var querystring = require('querystring')
 
 router.post('/signup', function(req, res) {
   if (!req.body.email || !req.body.password) {
@@ -38,24 +40,10 @@ router.post('/signup', function(req, res) {
   }
 });
 
-router.post('/extraInformation', getToken ,function(req, res) {
-  var id = req.decoded.id;
-  User.findOne({_id:id}).then(function(user){
-    var email= user.email;
-    //
-    // var info = new Info();
-    // info.email = email;
-    // info.information =
-  }).catch(function(err){
-    res.json({
-      "success": "false",
-      "message": "something happened"
-    })
-  });
-});
+
 
 router.post('/skills', getToken ,function(req, res) {
-  var id = req.decoded.id;
+  var id = req.decoded._id;
   User.findOne({_id:id}).then(function(user){
     var email= user.email;
     for (var key in req.body) {
@@ -87,7 +75,7 @@ router.post('/skills', getToken ,function(req, res) {
 });
 
 router.post('/interest', getToken ,function(req, res) {
-  var id = req.decoded.id;
+  var id = req.decoded._id;
   User.findOne({_id:id}).then(function(user){
     var email= user.email;
     for (var key in req.body) {
@@ -119,8 +107,9 @@ router.post('/interest', getToken ,function(req, res) {
 });
 
 router.post('/edLevel', getToken ,function(req, res) {
-  var id = req.decoded.id;
-  User.findOne({_id:id}).then(function(user){
+  var id = req.decoded._id;
+  console.log(id);
+  User.findOne({"_id":id}).then(function(user){
     var email= user.email;
     var newInfo= new moreInfo();
     newInfo.email = email;
@@ -128,6 +117,7 @@ router.post('/edLevel', getToken ,function(req, res) {
     newInfo.value = req.body.edLevel;
     newInfo.save(function(err) {
       if (err) {
+        console.log(err)
         return res.json({
           success: false,
           msg: 'error'
@@ -139,6 +129,7 @@ router.post('/edLevel', getToken ,function(req, res) {
       });
     });
   }).catch(function(err){
+    console.log(err);
     res.json({
       "success": "false",
       "message": "something happened"
@@ -147,11 +138,30 @@ router.post('/edLevel', getToken ,function(req, res) {
 });
 
 router.get('/content',getToken,function(req,res){
-  var id = req.decoded.id;
-  User.findOne({_id:id}).then(function(user){
+  var id = req.decoded._id;
+  console.log(id);
+  console.log(req.decoded._id);
+  User.findOne({"_id":id}).then(function(user){
+    var email = user.email;
+    var lv = user.level;
+    var dict = `{ "level" :${lv} }`;
+    var url = 'http://6c8b2559.ngrok.io/api/test.Content?filter=' + encodeURIComponent(dict);
 
+    console.log(url)
+    requestify.get(url).then(function(response) {
+    // Get the response body (JSON parsed - JSON response or jQuery object in case of XML response)
+    var body=  response.getBody();
+    // Get the response raw body
+    console.log(body.length);
+    var jsonreturn={
+      "content":[]
+    }
+      jsonreturn.content=body;
+    res.send(jsonreturn)
 
+});
   }).catch(function(err){
+    console.log(err);
     res.json({
       "success": "false",
       "message": "something happened"
@@ -192,7 +202,7 @@ router.post('/login', function(req, res) {
           // return the information including token as JSON
           res.json({
             success: true,
-            token: 'JWT ' + token
+            token: token
           });
 
         }

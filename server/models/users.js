@@ -13,7 +13,8 @@ const userSchema = new Schema({
   },
   password: String,
   college: String,
-  name: String
+  name: String,
+  level: Number
 });
 
 userSchema.methods.generateHash = function(password) {
