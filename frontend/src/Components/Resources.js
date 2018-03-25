@@ -32,7 +32,7 @@ class Resources extends Component {
     })
   }
    render() {
-    const text = "Welcome to Resource Rating";
+    const text = "Welcome  to  Resource  Rating!";
     const educationArray = this.state.educationLevels.map(level => {
       return (
         <div className="col-md-2">
@@ -48,17 +48,17 @@ class Resources extends Component {
         <div style={{textAlign: "center"}}>
           <AnimatedText fontSize={"2em"} color={"#1B6FBC"}>{text}</AnimatedText>
          </div>
-         <div className="row">
-          <div className="card3" style={{marginTop: 40, marginLeft: 150, width: 400, backgroundColor: 'white', fontSize: 20}}>
+         <div className="row" style={{marginLeft: 100}}>
+          <div className="card3" style={{marginTop: 40, marginLeft: 50, width: 400, backgroundColor: 'white', fontSize: 20}}>
             <Player
                playsInline
                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
             />
             <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+              <h4>An Amazing Video</h4>
+              <p>This is a description of an amazing video.</p>
+              <span key={111} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={112}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
             </div>
           </div>
           <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
@@ -67,10 +67,10 @@ class Resources extends Component {
                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
             />
             <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+              <h4>Useful Video</h4>
+              <p>This is a description of a very, very, useful, video.</p>
+              <span key={113} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={114}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
             </div>
           </div>
           <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
@@ -79,10 +79,10 @@ class Resources extends Component {
                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
             />
             <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+              <h4>Fun Video</h4>
+              <p>This is a description of a very fun video.</p>
+              <span key={115} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={116}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
             </div>
           </div>
           <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
@@ -91,34 +91,22 @@ class Resources extends Component {
                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
             />
             <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+              <h4>Video Title</h4>
+              <p>This is a description of a very, very, useful, video.</p>
+              <span key={117} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={118}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
             </div>
           </div>
-          <div className="card3" style={{marginTop: 40, marginLeft: 150, width: 400, backgroundColor: 'white', fontSize: 20}}>
+          <div className="card3" style={{marginTop: 40, marginLeft: 50, width: 400, backgroundColor: 'white', fontSize: 20}}>
             <Player
                playsInline
                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
             />
             <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
-            </div>
-          </div>
-          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
-            <Player
-               playsInline
-               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
-            />
-            <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+              <h4>Video Title</h4>
+              <p>This is a description of a very, very, useful, video.</p>
+              <span key={119} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={120}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
             </div>
           </div>
           <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
@@ -127,10 +115,10 @@ class Resources extends Component {
                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
             />
             <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+              <h4>Video Title</h4>
+              <p>This is a description of a very, very, useful, video.</p>
+              <span key={121} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={122}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
             </div>
           </div>
           <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
@@ -139,10 +127,22 @@ class Resources extends Component {
                src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
             />
             <div style={{padding: 50}}>
-              <h1>Video Title</h1>
-              <p>This is a description of a video.</p>
-              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
-              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+              <h4>Video Title</h4>
+              <p>This is a description of a very, very, useful, video.</p>
+              <span key={123} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={124}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h4>Video Title</h4>
+              <p>This is a description of a very, very, useful, video.</p>
+              <span key={125} style={styles.like} className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span key={126}style={styles.like} className="badge"><i className="fa fa-thumbs-down"></i></span>
             </div>
           </div>
          </div>
@@ -207,6 +207,15 @@ var styles = {
     boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
     ':hover': {
       fontSize: '1.2em',
+      cursor: 'pointer',
+      backgroundColor: '#FFA500',
+      transition: 'all .5s ease-in-out'
+    }
+  },
+  like: {
+    fontSize: 40,
+    ':hover': {
+      fontSize: 40,
       cursor: 'pointer',
       backgroundColor: '#FFA500',
       transition: 'all .5s ease-in-out'
