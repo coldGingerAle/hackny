@@ -11,6 +11,7 @@ import Begin4 from './Begin4';
 import Begin5 from './Begin5';
 import Resources from './Resources';
 import Sources from './Sources';
+import axios from 'axios';
 import About0 from './About0';
 
 export default class Testing extends Component {
@@ -18,7 +19,8 @@ export default class Testing extends Component {
     super(props);
     this.state = ({
       show: false,
-      step: 0
+      step: 0,
+      token: ""
     })
     this.nextStep = this.nextStep.bind(this);
     this.goToResources = this.goToResources.bind(this);
@@ -27,6 +29,19 @@ export default class Testing extends Component {
   componentDidMount() {
     this.setState({
       show: true
+    })
+    const url = "http://ec2-54-193-36-147.us-west-1.compute.amazonaws.com:8081/login";
+    axios.post(url, {
+      email: "asdasd",
+      password: "kkkkk1"
+    }).then(response => {
+      axios.defaults.headers.common['x-access-token'] = response.data.token;
+      console.log(response);
+      this.setState({
+        token: response.data.token
+      })
+    }).catch(error => {
+      console.log(error);
     })
   }
   nextStep = () => {
@@ -66,10 +81,10 @@ export default class Testing extends Component {
         component = <Begin5 goToResources={this.goToResources} goToRateResources={this.goToRateResources} nextStep={this.nextStep} />;
         break;
       case 6:
-        component = <Sources />;
+        component = <Sources token={this.state.token}/>;
         break;
       case 7:
-        component = <Resources />;
+        component = <Resources token={this.state.token}/>;
         break;
     }
     return(
