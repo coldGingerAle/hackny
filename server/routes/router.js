@@ -57,10 +57,33 @@ router.post('/extraInformation', getToken ,function(req, res) {
 
 
 router.post('/search', getToken ,function(req, res) {
-  User.findOne({'email':req.body.email}, function(err, task) {
-    if (err)  res.send(err);
-    res.send(task);
+  var id = req.decoded.id;
+  User.findOne({_id:id}).then(function(user){
+    var email= user.email;
+    //
+    // var info = new Info();
+    // info.email = email;
+    // info.information =
+  }).catch(function(err){
+    res.json({
+      "success": "false",
+      "message": "something happened"
+    })
   });
+});
+
+router.get('/content',getToken,function(req,res){
+  var id = req.decoded.id;
+  User.findOne({_id:id}).then(function(user){
+    var email= user.email;
+  
+  }).catch(function(err){
+    res.json({
+      "success": "false",
+      "message": "something happened"
+    })
+  });
+
 });
 
 router.post('/login', function(req, res) {
