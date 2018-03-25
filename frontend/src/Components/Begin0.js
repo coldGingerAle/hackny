@@ -19,7 +19,7 @@ class Begin0 extends Component {
     })
   }
    render() {
-    const text = "Prepare to launch your dream career!";
+    const text = "Receive,  Reciprocate,  Rate!";
     return (
       <BlandFade show={this.state.show}>
         <div style={styles.form}>
