@@ -46,12 +46,12 @@ router.post('/extraInformation', getToken ,function(req, res) {
     // var info = new Info();
     // info.email = email;
     // info.information =
-  }).catch(err){
+  }).catch(function(err){
     res.json({
       "success": "false",
       "message": "something happened"
     })
-  }
+  });
 });
 
 
