@@ -86,7 +86,7 @@ router.post('/skills', getToken ,function(req, res) {
   });
 });
 
-router.post('/intrest', getToken ,function(req, res) {
+router.post('/interest', getToken ,function(req, res) {
   var id = req.decoded.id;
   User.findOne({_id:id}).then(function(user){
     var email= user.email;
@@ -149,7 +149,7 @@ router.post('/edLevel', getToken ,function(req, res) {
 router.get('/content',getToken,function(req,res){
   var id = req.decoded.id;
   User.findOne({_id:id}).then(function(user){
-
+    
 
   }).catch(function(err){
     res.json({
