@@ -6,6 +6,7 @@ var jwt = require('jsonwebtoken');
 var router = express.Router();
 var getToken = require('../services/getToken');
 var User = require("../models/users");
+var moreInfo = require("../models/moreInformation");
 
 router.post('/signup', function(req, res) {
   if (!req.body.email || !req.body.password) {
@@ -18,6 +19,10 @@ router.post('/signup', function(req, res) {
     newUser.email= req.body.email;
     newUser.password=newUser.generateHash(req.body.password);
     // save the user
+    newUser.name = req.body.name;
+    newUser.college = req.body.college;
+    newUser.username = req.body.username;
+
     newUser.save(function(err) {
       if (err) {
         return res.json({
@@ -32,6 +37,24 @@ router.post('/signup', function(req, res) {
     });
   }
 });
+
+router.post('/extraInformation', getToken ,function(req, res) {
+  var id = req.decoded.id;
+  User.findOne({_id:id}).then(function(user){
+    var email= user.email;
+    //
+    // var info = new Info();
+    // info.email = email;
+    // info.information =
+  }).catch(err){
+    res.json({
+      "success": "false",
+      "message": "something happened"
+    })
+  }
+});
+
+
 
 router.post('/search', getToken ,function(req, res) {
   User.findOne({'email':req.body.email}, function(err, task) {

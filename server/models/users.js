@@ -7,7 +7,13 @@ const userSchema = new Schema({
     type: String,
     unique: true
   },
+  username:{
+    type:String,
+    unique:true
+  },
   password: String,
+  college: String,
+  name: String
 });
 
 userSchema.methods.generateHash = function(password) {

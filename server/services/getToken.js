@@ -1,4 +1,5 @@
 var jwt = require('jsonwebtoken');
+var User = require('../models/users');
 
 module.exports = function(req,res,next) {
   var token = req.body.token || req.query.token || req.headers['x-access-token'];
@@ -10,6 +11,7 @@ module.exports = function(req,res,next) {
                 return res.json({"error": true});
             }
             req.decoded = decoded;
+
             next(); //no error, proceed
         });
     } else {
