@@ -9,6 +9,8 @@ import Begin2 from './Begin2';
 import Begin3 from './Begin3';
 import Begin4 from './Begin4';
 import Begin5 from './Begin5';
+import Resources from './Resources';
+import Sources from './Sources';
 import About0 from './About0';
 
 export default class Testing extends Component {
@@ -16,7 +18,7 @@ export default class Testing extends Component {
     super(props);
     this.state = ({
       show: false,
-      step: 5
+      step: 0
     })
     this.nextStep = this.nextStep.bind(this);
     this.goToResources = this.goToResources.bind(this);
@@ -62,6 +64,12 @@ export default class Testing extends Component {
         break;
       case 5:
         component = <Begin5 goToResources={this.goToResources} goToRateResources={this.goToRateResources} nextStep={this.nextStep} />;
+        break;
+      case 6:
+        component = <Sources />;
+        break;
+      case 7:
+        component = <Resources />;
         break;
     }
     return(

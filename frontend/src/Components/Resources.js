@@ -9,6 +9,8 @@ import BlandFade from './BlandFade';
 import { Transition } from 'react-transition-group';
 import SkillComponent from './SkillComponent';
 import DashboardComponent from './DashboardComponent';
+import "../../node_modules/video-react/dist/video-react.css"; // import css
+import { Player } from 'video-react';
 
 class Resources extends Component {
   constructor(props) {
@@ -30,7 +32,7 @@ class Resources extends Component {
     })
   }
    render() {
-    const text = "Welcome to the Dashboard";
+    const text = "Welcome to Resource Rating";
     const educationArray = this.state.educationLevels.map(level => {
       return (
         <div className="col-md-2">
@@ -46,11 +48,103 @@ class Resources extends Component {
         <div style={{textAlign: "center"}}>
           <AnimatedText fontSize={"2em"} color={"#1B6FBC"}>{text}</AnimatedText>
          </div>
-         <div className="row" style={{marginLeft: 200, marginTop: 60}}>
-          <DashboardComponent src="Img/profile.png" title={"My Profile"}/>
-          <DashboardComponent onClick={this.props.goToResources} src="Img/resource.png" title={"Resources"}/>
-          <DashboardComponent src="Img/calendar.png" title={"Projections"}/>
-          <DashboardComponent onClick={this.props.goToRateResources} src="Img/like.png" title={"Rate Resources"}/>
+         <div className="row">
+          <div className="card3" style={{marginTop: 40, marginLeft: 150, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 150, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
+          <div className="card3" style={{marginTop: 40, marginLeft: 20, width: 400, backgroundColor: 'white', fontSize: 20}}>
+            <Player
+               playsInline
+               src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+            />
+            <div style={{padding: 50}}>
+              <h1>Video Title</h1>
+              <p>This is a description of a video.</p>
+              <span className="badge"><i className="fa fa-thumbs-up"></i></span>
+              <span className="badge"><i className="fa fa-thumbs-down"></i></span>
+            </div>
+          </div>
          </div>
         </div>
       </BlandFade>
@@ -63,7 +157,7 @@ export default Resources = Radium(Resources);
 var styles = {
   form: {
     width: '100vw',
-    height: '100vh',
+    minHeight: '100vh',
     padding: 0,
     margin: 0,
     paddingTop: 50,
